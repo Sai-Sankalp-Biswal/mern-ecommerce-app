@@ -8,7 +8,7 @@ function Products() {
   const isLoggedIn = Boolean(localStorage.getItem("token"));
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch('${API_BASE_URL}/api/products')
       .then(res => res.json())
       .then(setProducts);
   }, []);

@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import "../styles.css";
+import API_BASE_URL from "../config";
 
 function AdminOrders() {
   const [activeTab, setActiveTab] = useState("orders");
@@ -17,7 +18,7 @@ function AdminOrders() {
 
   /* ================= FETCH ORDERS ================= */
   const fetchOrders = useCallback(async () => {
-    const res = await fetch("http://localhost:5000/api/admin/orders", {
+    const res = await fetch(`${API_BASE_URL}/api/admin/orders`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -28,7 +29,7 @@ function AdminOrders() {
 
   /* ================= FETCH PRODUCTS ================= */
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:5000/api/products");
+    const res = await fetch(`${API_BASE_URL}/api/products`);
     const data = await res.json();
     setProducts(Array.isArray(data) ? data : []);
   };
@@ -40,7 +41,7 @@ function AdminOrders() {
 
   /* ================= UPDATE ORDER STATUS ================= */
   async function updateOrderStatus(id, status) {
-    await fetch(`http://localhost:5000/api/admin/orders/${id}`, {
+    await fetch(`${API_BASE_URL}/api/admin/orders/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -58,8 +59,8 @@ function AdminOrders() {
     }
 
     const url = editingId
-      ? `http://localhost:5000/api/admin/products/${editingId}`
-      : "http://localhost:5000/api/admin/products";
+      ? `${API_BASE_URL}/api/admin/products/${editingId}`
+      : '${API_BASE_URL}/api/admin/products';
 
     const method = editingId ? "PUT" : "POST";
 
@@ -91,7 +92,7 @@ function AdminOrders() {
 
   /* ================= DELETE PRODUCT ================= */
   async function deleteProduct(id) {
-    await fetch(`http://localhost:5000/api/admin/products/${id}`, {
+    await fetch(`${API_BASE_URL}/api/admin/products/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

@@ -8,7 +8,7 @@ export default function Orders() {
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://localhost:5000/api/orders/my", {
+    fetch('${API_BASE_URL}/api/orders/my', {
       headers: {
         Authorization: `Bearer ${token}`
       }
