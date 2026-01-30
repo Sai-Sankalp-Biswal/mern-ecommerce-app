@@ -9,7 +9,7 @@ export default function Orders() {
   useEffect(() => {
     if (!token) return;
 
-    fetch('${API_BASE_URL}/api/orders/my', {
+    fetch(`${API_BASE_URL}/api/orders/my`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

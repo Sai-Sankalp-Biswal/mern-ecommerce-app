@@ -60,7 +60,7 @@ function AdminOrders() {
 
     const url = editingId
       ? `${API_BASE_URL}/api/admin/products/${editingId}`
-      : '${API_BASE_URL}/api/admin/products';
+      : `${API_BASE_URL}/api/admin/products`;
 
     const method = editingId ? "PUT" : "POST";
 
