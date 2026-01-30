@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import API_BASE_URL from "../config";
 import "../styles.css";
 
 function ProductDetails() {

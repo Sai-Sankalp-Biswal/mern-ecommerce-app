@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_BASE_URL from "../config";
 import "../styles.css";
 
 export default function Orders() {
