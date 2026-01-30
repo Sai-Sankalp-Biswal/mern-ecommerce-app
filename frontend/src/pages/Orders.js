@@ -34,23 +34,42 @@ export default function Orders() {
 
       {orders.map(order => (
         <div className="card" key={order._id}>
+
           {/* HEADER */}
           <div className="order-header">
             <span className={statusClass(order.status)}>
               {order.status}
             </span>
 
-            <div className="order-right">
-              <div className="order-meta">
-                {new Date(order.createdAt).toLocaleString()}
-              </div>
+            <div className="order-meta">
+              {new Date(order.createdAt).toLocaleString()}
             </div>
+          </div>
+
+          {/* ITEMS */}
+          <div className="order-items">
+            <h4>Items</h4>
+
+            {order.items.map(item => (
+              <div key={item.product._id} className="order-item">
+                <div>
+                  <strong>{item.product.name}</strong>
+                </div>
+                <div>
+                  Price: ₹{item.product.price}
+                </div>
+                <div>
+                  Quantity: {item.quantity}
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* TOTAL */}
           <div className="price">
             Total Amount: ₹{order.totalAmount}
           </div>
+
         </div>
       ))}
     </div>
