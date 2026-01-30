@@ -358,3 +358,23 @@ body {
 .order-item {
   margin-bottom: 8px;
 }
+.order-items {
+  margin-top: 12px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-meta span {
+  margin-left: 10px;
+  color: #555;
+}
