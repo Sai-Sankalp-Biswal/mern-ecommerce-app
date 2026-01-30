@@ -4,14 +4,12 @@ import API_BASE_URL from "../config";
 
 function AdminOrders() {
   const [activeTab, setActiveTab] = useState("orders");
-
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-
   const [editingId, setEditingId] = useState(null);
 
   const token = localStorage.getItem("token");
@@ -39,9 +37,9 @@ function AdminOrders() {
     fetchProducts();
   }, [fetchOrders]);
 
-  /* ================= UPDATE ORDER STATUS ================= */
+  /* ================= UPDATE ORDER STATUS (FIXED) ================= */
   async function updateOrderStatus(id, status) {
-    await fetch(`${API_BASE_URL}/api/admin/orders/${id}`, {
+    await fetch(`${API_BASE_URL}/api/orders/${id}/status`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -49,6 +47,7 @@ function AdminOrders() {
       },
       body: JSON.stringify({ status })
     });
+
     fetchOrders();
   }
 
@@ -70,11 +69,7 @@ function AdminOrders() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
       },
-      body: JSON.stringify({
-        name,
-        price,
-        description
-      })
+      body: JSON.stringify({ name, price, description })
     });
 
     if (!res.ok) {
@@ -86,7 +81,6 @@ function AdminOrders() {
     setPrice("");
     setDescription("");
     setEditingId(null);
-
     fetchProducts();
   }
 
@@ -101,7 +95,7 @@ function AdminOrders() {
     fetchProducts();
   }
 
-  /* ================= START EDIT ================= */
+  /* ================= START / CANCEL EDIT ================= */
   function startEdit(product) {
     setEditingId(product._id);
     setName(product.name);
@@ -109,7 +103,6 @@ function AdminOrders() {
     setDescription(product.description);
   }
 
-  /* ================= CANCEL EDIT ================= */
   function cancelEdit() {
     setEditingId(null);
     setName("");
@@ -139,12 +132,8 @@ function AdminOrders() {
           <div className="admin-grid">
             {orders.map(order => (
               <div className="card" key={order._id}>
-                <p>
-                  <strong>User:</strong> {order.user?.email}
-                </p>
-                <p>
-                  <strong>Total:</strong> ₹{order.totalAmount}
-                </p>
+                <p><strong>User:</strong> {order.user?.email}</p>
+                <p><strong>Total:</strong> ₹{order.totalAmount}</p>
 
                 <select
                   value={order.status}
@@ -206,10 +195,7 @@ function AdminOrders() {
                 <p className="price">₹{product.price}</p>
                 <p>{product.description}</p>
 
-                <button
-                  className="btn"
-                  onClick={() => startEdit(product)}
-                >
+                <button className="btn" onClick={() => startEdit(product)}>
                   ✏️ Edit
                 </button>
 

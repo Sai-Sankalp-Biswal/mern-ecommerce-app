@@ -50,3 +50,26 @@ router.get("/my", authMiddleware, async (req, res) => {
 
 
 export default router;
+
+
+// UPDATE ORDER STATUS (ADMIN)
+router.put("/:id/status", authMiddleware, adminMiddleware, async (req, res) => {
+  try {
+    const { status } = req.body;
+
+    const order = await Order.findByIdAndUpdate(
+      req.params.id,
+      { status },
+      { new: true }
+    );
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    res.json(order);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Failed to update order status" });
+  }
+});
