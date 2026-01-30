@@ -1,0 +1,49 @@
+/* Page wrapper */
+.page {
+  padding: 40px;
+  background: #f6f8fb;
+  min-height: calc(100vh - 70px);
+}
+
+/* Card (used everywhere) */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Centered card (login/register) */
+.center-card {
+  margin: 0 auto;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #2d89ef;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #1b6fd8;
+}
