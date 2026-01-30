@@ -20,10 +20,7 @@ function Checkout() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({
-          items,
-          totalAmount: total
-        })
+        body: JSON.stringify(orderData)
       });
 
       if (!res.ok) {
