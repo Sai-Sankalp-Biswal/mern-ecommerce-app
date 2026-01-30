@@ -49,18 +49,15 @@ export default function Orders() {
                     <div className="order-items">
                         <h4>Items</h4>
 
-                        {order.items.map(item => (
-                            <div key={item._id} className="order-item">
-                                <div className="item-name">
-                                    {item.product?.name}
-                                </div>
-
-                                <div className="item-meta">
-                                    <span>Price: ₹{item.product?.price}</span>
-                                    <span>Qty: {item.quantity}</span>
+                        {order.items.map((item, index) => (
+                            <div key={index} className="order-item">
+                                <strong>{item.name}</strong>
+                                <div>
+                                    Price: ₹{item.price} &nbsp; Qty: {item.quantity}
                                 </div>
                             </div>
                         ))}
+
                     </div>
 
                     {/* TOTAL */}
