@@ -6,11 +6,18 @@ function Checkout() {
   const navigate = useNavigate();
   const items = state?.items || [];
   const token = localStorage.getItem("token");
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
   const total = items.reduce(
     (s, i) => s + i.price * i.quantity,
     0
   );
+
+  const orderData = {
+    items: cartItems,
+    totalAmount: total,
+  };
+
 
   async function handlePayNow() {
     try {

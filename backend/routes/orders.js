@@ -11,9 +11,10 @@ router.post("/", authMiddleware, async (req, res) => {
   try {
     const { items, totalAmount } = req.body;
 
-    // ✅ FIX: map frontend items → schema format
     const formattedItems = items.map(item => ({
       product: item._id,
+      name: item.name,
+      price: item.price,
       quantity: item.quantity
     }));
 
@@ -34,17 +35,18 @@ router.post("/", authMiddleware, async (req, res) => {
   }
 });
 
+
 // GET ALL ORDERS (ADMIN)
 router.get("/my", authMiddleware, async (req, res) => {
   try {
     const orders = await Order.find({ user: req.user.id })
-      .sort({ createdAt: -1 })
-      .populate("items.product");
+      .sort({ createdAt: -1 });
 
     res.json(orders);
   } catch (err) {
     res.status(500).json({ message: "Failed to fetch orders" });
   }
 });
+
 
 export default router;
