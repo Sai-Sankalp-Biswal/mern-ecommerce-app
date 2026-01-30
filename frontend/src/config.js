@@ -1,2 +1,2 @@
-const API_URL = "http://localhost:5000/api";
-export default API_URL;
+const API_BASE_URL = "https://mern-ecommerce-app-vye4.onrender.com";
+export default API_BASE_URL;
