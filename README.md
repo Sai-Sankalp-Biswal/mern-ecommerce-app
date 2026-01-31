@@ -1,5 +1,5 @@
 # MERN E-Commerce Application  
-**Major Project – Group 3**
+**Major Project**
 
 A full-stack **MERN (MongoDB, Express, React, Node.js)** based E-Commerce web application developed as part of the **Full Stack Web Development (FWSD) – Major Project**.
 
