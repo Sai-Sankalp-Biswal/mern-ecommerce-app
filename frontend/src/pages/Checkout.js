@@ -49,7 +49,7 @@ function Checkout() {
       <h2>Checkout</h2>
       <h3>Total: ₹{total}</h3>
       <button className="btn" onClick={handlePayNow}>
-        Pay Now (Mock)
+        Pay Now 
       </button>
     </div>
   );
