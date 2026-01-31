@@ -1,7 +1,21 @@
 # MERN E-Commerce Application  
-**Major Project**
+**Major Project - Group 3**
 
-A full-stack **MERN (MongoDB, Express, React, Node.js)** based E-Commerce web application developed as part of the **Full Stack Web Development (FWSD) – Major Project**.
+A full-stack **MERN (MongoDB, Express, React, Node.js)** based E-Commerce web application developed as part of the **Full Stack Web Development (FWSD) – Major Project by Group 3**.
+
+---
+
+## Members of Group 3
+
+Roll / Batch Code | Name 
+-----------------------------------------
+25/WD-FWSD-A4/NOV-8132 | Leena Ashok Borkar 
+25/WD-FWSD-A4/DEC-8500 | Charmika Kommu 
+25/WD-FWSD-A4/DEC-8626 | Varun Sai Jonnalagadda 
+25/WD-FWSD-A4/NOV-8145 | Tapas Kumar Malik 
+25/WD-FWSD-A4/DEC-8529 | Sai Sankalp Biswal
+25/WD-FWSD-A4/DEC-8537 | Rapaka Saketh 
+25/WD-FWSD-A4/DEC-8628 | T Nikhil
 
 ---
 
@@ -66,8 +80,33 @@ mern-ecommerce-app/
 │ │ ├── config.js
 │ │ └── App.js
 │ └── package.json
-│
+├── screenshots/
+├── DeployedURL.txt
 └── README.md
+
+---
+## 🔐 Demo Credentials 
+
+### Customer Account
+The following demo customer account is available right now:
+- **Email:** SS@gmail.com  
+- **Password:** sai2006  
+
+### Admin Account
+The following admin account can be used to access admin features:
+- **Email:** admin@gmail.com  
+- **Password:** admin123  
+
+---
+
+## 📸 Screenshots
+
+All major user and admin flows have been captured and stored in the `screenshots/` directory, including:
+- Product listing
+- Login & authentication
+- Cart & checkout
+- Order history
+- Admin order & product management
 
 ---
 
